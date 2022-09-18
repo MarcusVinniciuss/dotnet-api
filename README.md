@@ -26,6 +26,7 @@ cobrança que esta prestes a quitar com seu cartão.
 ### POST /api/usuario/login
 
 ### Descrição
+
 Endpoint utilizado para realizar o login do usuário.
 
 Corpo da requisição
@@ -71,6 +72,7 @@ Resposta - Status Code 200
 ### POST /api/usuario
 
 ### Descrição
+
 Endpoint utilizado para registrar um novo usuário.
 
 Corpo da requisição
@@ -134,6 +136,7 @@ Resposta - Status Code 200
 ### PUT /api/usuario
 
 ### Descrição
+
 Endpoint utilizado para editar um usuário.
 
 Corpo da requisição
@@ -200,6 +203,7 @@ Resposta - Status Code 200
 ### DELETE /api/usuario/{cpf}
 
 ### Descrição
+
 Endpoint utilizado para deletar(soft delete)/desativar um usuário.
 
 Parâmetros
@@ -240,7 +244,13 @@ Resposta - Status Code 200
 ```
 
 ## Como executar o projeto
+
 Faça o download do repositório na sua máquina, abra a solution 'EuPagoAPI' no Visual Studio e execute-a. A API foi documentada com SwaggerAPI, que fica disponivel na url https://localhost:7059/swagger/index.html.
+
+## Usuários já cadastrados para teste
+
+* CPF: 12345678907 - Senha: teste123455
+* CPF: 12345678900 - Senha: xpto123teste
 
 ## Integrantes
 
