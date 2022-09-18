@@ -74,7 +74,7 @@ Resposta - Status Code 200
 Endpoint utilizado para registrar um novo usuário.
 
 Corpo da requisição
-````json
+```json
 {
   "usuario": {
     "nome": "string",
