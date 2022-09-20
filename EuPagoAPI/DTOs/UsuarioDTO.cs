@@ -1,6 +1,6 @@
 ﻿namespace EuPagoAPI.DTOs
 {
-    public class UsuarioDTO
+    public record UsuarioDTO
     {
         public string Nome { get; set; }
         public long CPF { get; set; }

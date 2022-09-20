@@ -1,6 +1,6 @@
 ﻿namespace EuPagoAPI.DTOs
 {
-    public class EnderecoDTO
+    public record EnderecoDTO
     {
         public string Cidade { get; set; }
         public string Rua { get; set; }

@@ -1,6 +1,6 @@
 ﻿namespace EuPagoAPI.DTOs
 {
-    public class TelefoneDTO
+    public record TelefoneDTO
     {
         public int DDD { get; set; }
         public long Numero { get; set; }

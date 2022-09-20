@@ -1,6 +1,6 @@
 ﻿namespace EuPagoAPI.DTOs
 {
-    public class UsuarioUpdateDTO
+    public record UsuarioUpdateDTO
     {
         public UsuarioDTO usuario { get; set; }
     }

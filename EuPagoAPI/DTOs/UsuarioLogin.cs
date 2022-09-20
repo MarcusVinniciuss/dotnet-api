@@ -2,7 +2,7 @@
 
 namespace EuPagoAPI.DTOs
 {
-    public class UsuarioLogin
+    public record UsuarioLogin
     {
         [Required]
         public long CPF { get; set; }

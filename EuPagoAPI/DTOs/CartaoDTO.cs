@@ -1,6 +1,6 @@
 ﻿namespace EuPagoAPI.DTOs
 {
-    public class CartaoDTO
+    public record CartaoDTO
     {
         public string NomeImpresso { get; set; }
         public string? CPF { get; set; }

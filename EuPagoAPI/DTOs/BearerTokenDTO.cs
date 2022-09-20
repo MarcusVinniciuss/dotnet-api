@@ -1,6 +1,6 @@
 ﻿namespace EuPagoAPI.DTOs
 {
-    public class BearerTokenDTO
+    public record BearerTokenDTO
     {
         public string Token { get; set; }
     }
