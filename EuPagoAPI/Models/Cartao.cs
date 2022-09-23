@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace EuPagoAPI.Models
+﻿namespace EuPagoAPI.Models
 {
     public class Cartao
     {

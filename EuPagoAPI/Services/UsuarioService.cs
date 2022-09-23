@@ -2,8 +2,6 @@
 using EuPagoAPI.DTOs;
 using EuPagoAPI.Models;
 using EuPagoAPI.Utils;
-using Microsoft.EntityFrameworkCore;
-using Oracle.ManagedDataAccess.Client;
 
 namespace EuPagoAPI.Services
 {

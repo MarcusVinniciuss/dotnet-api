@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace EuPagoAPI.DTOs
+﻿namespace EuPagoAPI.DTOs
 {
     public record UsuarioLogin
     {

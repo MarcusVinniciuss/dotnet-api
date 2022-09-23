@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace EuPagoAPI.Extensions
+﻿namespace EuPagoAPI.Extensions
 {
     public static class DatabaseExtensions
     {
