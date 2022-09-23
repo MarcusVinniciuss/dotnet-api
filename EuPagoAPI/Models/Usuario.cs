@@ -1,4 +1,7 @@
-﻿namespace EuPagoAPI.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace EuPagoAPI.Models
 {
     [Table("TB_EUPAGO_USUARIO")]
     public class Usuario

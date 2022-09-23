@@ -1,5 +1,6 @@
 ﻿using EuPagoAPI.Data;
 using EuPagoAPI.Extensions;
+using Microsoft.EntityFrameworkCore;
 
 namespace EuPagoAPI.Services
 {
