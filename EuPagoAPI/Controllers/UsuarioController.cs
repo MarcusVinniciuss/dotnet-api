@@ -1,13 +1,9 @@
-﻿using EuPagoAPI.Data;
-using EuPagoAPI.DTOs;
+﻿using EuPagoAPI.DTOs;
 using EuPagoAPI.Models;
-using EuPagoAPI.Utils;
 using EuPagoAPI.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;

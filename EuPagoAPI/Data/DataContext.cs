@@ -1,8 +1,6 @@
 ﻿using EuPagoAPI.Models;
 using EuPagoAPI.Utils;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Storage;
 
 namespace EuPagoAPI.Data
 {
