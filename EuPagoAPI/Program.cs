@@ -1,3 +1,4 @@
+using EuPagoAPI;
 using EuPagoAPI.Data;
 using EuPagoAPI.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -31,6 +32,7 @@ builder.Services.AddDbContext<DataContext>(
  );
 builder.Services.AddCors();
 builder.Services.AddScoped<UsuarioService, UsuarioService>();
+builder.Services.AddScoped<CartaoService, CartaoService>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>

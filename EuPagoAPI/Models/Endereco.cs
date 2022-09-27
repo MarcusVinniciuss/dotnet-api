@@ -43,6 +43,5 @@ namespace EuPagoAPI.Models
         [Column("ID_USUARIO")]
         [ForeignKey("Usuario")]
         public decimal UsuarioId { get; set; }
-
     }
 }

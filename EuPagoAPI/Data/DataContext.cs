@@ -17,6 +17,7 @@ namespace EuPagoAPI.Data
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Usuario>().HasQueryFilter(p => p.StatusCadastro != StatusCadastro.Desativado);
+            modelBuilder.Entity<Cartao>().HasQueryFilter(c => c.StatusCadastro != StatusCadastro.Desativado);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -38,5 +39,6 @@ namespace EuPagoAPI.Data
         public DbSet<Endereco> Enderecos { get; set; }
        // public DbSet<Transacao> Transacoes { get; set; }
         public DbSet<Cartao> Cartoes { get; set; }
+        public DbSet<Estabelecimento> Estabelecimentos { get; set; }
     }
 }

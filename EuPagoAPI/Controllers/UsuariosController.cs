@@ -13,11 +13,11 @@ namespace EuPagoAPI.Controllers
 {
     [Route("api/usuario")]
     [ApiController]
-    public class UsuarioController : ControllerBase
+    public class UsuariosController : ControllerBase
     {
-        private IConfiguration _config;
+        private readonly IConfiguration _config;
         private readonly UsuarioService _service;
-        public UsuarioController(IConfiguration configuration, UsuarioService service)
+        public UsuariosController(IConfiguration configuration, UsuarioService service)
         {
             _config = configuration;
             _service = service;
