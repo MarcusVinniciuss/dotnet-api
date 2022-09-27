@@ -15,12 +15,10 @@ namespace EuPagoAPI.Controllers
     public class CartoesController : ControllerBase
     {
         private readonly CartaoService _service;
-        private readonly UsuarioService _usuarioService;
 
-        public CartoesController(CartaoService service, UsuarioService usuarioService)
+        public CartoesController(CartaoService service)
         {
             _service = service;
-            _usuarioService = usuarioService;
         }
 
         [HttpPost]
