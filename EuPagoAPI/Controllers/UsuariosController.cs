@@ -103,7 +103,6 @@ namespace EuPagoAPI.Controllers
         }
 
         [HttpPost]
-        [Route("")]
         public async Task<ActionResult<UsuarioCreateDTO>> Post([FromBody] UsuarioCreateDTO model)
         {
             try
@@ -167,7 +166,6 @@ namespace EuPagoAPI.Controllers
         }
 
         [HttpPut]
-        [Route("")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult<UsuarioLoginDTO>> Put([FromBody] UsuarioUpdateDTO model)
         {

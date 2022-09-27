@@ -30,9 +30,15 @@ builder.Services.AddDbContext<DataContext>(
         builder.Configuration.GetConnectionString("EuPagoDB")
     )
  );
+
+// Add CORS
 builder.Services.AddCors();
+
+// Inject services into api controllers
 builder.Services.AddScoped<UsuarioService, UsuarioService>();
 builder.Services.AddScoped<CartaoService, CartaoService>();
+builder.Services.AddScoped<EstabelecimentoService, EstabelecimentoService>();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>

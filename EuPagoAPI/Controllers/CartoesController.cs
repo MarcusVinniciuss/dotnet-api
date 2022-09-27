@@ -22,7 +22,6 @@ namespace EuPagoAPI.Controllers
         }
 
         [HttpPost]
-        [Route("")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult<dynamic>> Post([FromBody] CartaoDTO model)
         {
@@ -36,7 +35,7 @@ namespace EuPagoAPI.Controllers
 
                 await _service.Add(model);
 
-                return Created(new Uri(@$"api/Cartoes/{model.UsuarioId}/{model.Numero}", UriKind.Relative), model);
+                return Created(new Uri($@"api/Cartoes/{model.UsuarioId}/{model.Numero}", UriKind.Relative), model);
             }
             catch (Exception)
             {
