@@ -18,6 +18,7 @@ namespace EuPagoAPI.Data
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Usuario>().HasQueryFilter(p => p.StatusCadastro != StatusCadastro.Desativado);
             modelBuilder.Entity<Cartao>().HasQueryFilter(c => c.StatusCadastro != StatusCadastro.Desativado);
+            modelBuilder.Entity<Estabelecimento>().HasQueryFilter(e => e.StatusCadastro != StatusCadastro.Desativado);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

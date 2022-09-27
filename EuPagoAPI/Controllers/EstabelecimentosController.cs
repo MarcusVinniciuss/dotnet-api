@@ -42,7 +42,7 @@ namespace EuPagoAPI.Controllers
 
         // POST api/<EstabelecimentosController>
         [HttpPost]
-        public async Task<ActionResult<dynamic>> Post([FromBody] Estabelecimento model)
+        public async Task<ActionResult<dynamic>> Post([FromBody] EstabelecimentoDTO model)
         {
             try
             {
@@ -52,7 +52,9 @@ namespace EuPagoAPI.Controllers
 
                 if (e != null) return Conflict("Este estabelecimento já existe");
 
-                return Created(new Uri($@"api/Estabelecimentos/{model.CNPJ}"), UriKind.Relative);
+                await _service.Add(model);
+
+                return Created(new Uri($@"api/Estabelecimentos/{model.CNPJ}", UriKind.Relative), model);
             }
             catch (Exception)
             {

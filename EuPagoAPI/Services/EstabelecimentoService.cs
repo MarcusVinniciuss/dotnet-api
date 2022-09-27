@@ -27,9 +27,10 @@ namespace EuPagoAPI.Services
             {
                 Estabelecimento estabelecimento = new()
                 {
-                    Id = GetId<Estabelecimento>("SEQ_EUPAG_ESTABELECIMENTO"),
+                    Id = GetId<Estabelecimento>("SEQ_EUPAGO_ESTABELECIMENTO"),
                     Nome = model.Nome,
-                    CNPJ = model.CNPJ
+                    CNPJ = model.CNPJ,
+                    StatusCadastro = StatusCadastro.Ativo
                 };
 
                 _dataContext.Estabelecimentos.Add(estabelecimento);
