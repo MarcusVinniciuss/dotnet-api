@@ -66,7 +66,7 @@ namespace EuPagoAPI.Controllers
                 return Ok(carteiraUsuario);
             }
 
-            return Unauthorized("Token inválido para esse usuário ou está expirado.");
+            return Forbid(@"{""message"": ""Token inválido para esse usuário ou está expirado.""}");
         }
 
         [HttpPut]
@@ -96,7 +96,7 @@ namespace EuPagoAPI.Controllers
                     return Ok(model);
                 }
 
-                return Unauthorized("Token inválido para esse usuário ou está expirado.");
+                return Forbid(@"{""message"": ""Token inválido para esse usuário ou está expirado.""}");
             }
             catch (Exception)
             {
@@ -128,7 +128,7 @@ namespace EuPagoAPI.Controllers
                     return Ok(cartaoDelete);
                 }
 
-                return Unauthorized("Token inválido para esse usuário ou está expirado.");
+                return Forbid(@"{""message"": ""Token inválido para esse usuário ou está expirado.""}");
             }
             catch (Exception)
             {

@@ -156,7 +156,7 @@ namespace EuPagoAPI.Controllers
                     {
                         return Ok(usuario);
                     }
-                    return Unauthorized("Token inválido para esse usuário ou está expirado.");
+                    return Forbid(@"{""message"": ""Token inválido para esse usuário ou está expirado.""}");
                 }
                 return BadRequest("É necessário incluir a senha do usuário.");
             }
@@ -184,7 +184,7 @@ namespace EuPagoAPI.Controllers
                 if (usuarioUpdate == null) return NotFound("Usuário não encontrado.");
                 if (!primarySidCPFClaim.Equals(Convert.ToString(usuarioUpdate.CPF)))
                 {
-                    return Unauthorized(@"{""message"": ""Token inválido para esse usuário ou está expirado.""}");
+                    return Forbid(@"{""message"": ""Token inválido para esse usuário ou está expirado.""}");
                 }
 
                 await _service.Update(usuarioUpdate, model.usuario);
@@ -281,7 +281,7 @@ namespace EuPagoAPI.Controllers
                 await _service.SoftDelete(usuarioDesativado);
                 return Ok("Usuário deletado.");
             }
-            return Unauthorized("Token inválido para esse usuário ou está expirado.");
+            return Forbid(@"{""message"": ""Token inválido para esse usuário ou está expirado.""}");
         }
 
     }
