@@ -38,6 +38,8 @@ builder.Services.AddCors();
 builder.Services.AddScoped<UsuarioService, UsuarioService>();
 builder.Services.AddScoped<CartaoService, CartaoService>();
 builder.Services.AddScoped<EstabelecimentoService, EstabelecimentoService>();
+builder.Services.AddScoped<CompraService, CompraService>();
+builder.Services.AddScoped<TransacaoService, TransacaoService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

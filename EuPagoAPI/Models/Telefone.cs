@@ -20,7 +20,7 @@ namespace EuPagoAPI.Models
         [Range(10000000, 999999999, ErrorMessage = "Número de telefone deve ter entre 8-9 números.")]
         public long Numero { get; set; }
 
-        Usuario Usuario { get; set; }
+        public Usuario Usuario { get; set; }
 
         [Column("ID_USUARIO")]
         [ForeignKey("Usuario")]

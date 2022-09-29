@@ -34,11 +34,11 @@ namespace EuPagoAPI.Data
             }
         }
 
-        //public DbSet<Compra> Compras { get; set; }
+        public DbSet<Compra> Compras { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Telefone> Telefones { get; set; }
         public DbSet<Endereco> Enderecos { get; set; }
-       // public DbSet<Transacao> Transacoes { get; set; }
+        public DbSet<Transacao> Transacoes { get; set; }
         public DbSet<Cartao> Cartoes { get; set; }
         public DbSet<Estabelecimento> Estabelecimentos { get; set; }
     }

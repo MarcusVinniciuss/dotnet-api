@@ -38,7 +38,7 @@ namespace EuPagoAPI.Models
         [StringLength(10)]
         [Required]
         public string CEP { get; set; }
-        Usuario Usuario { get; set; }
+        public Usuario Usuario { get; set; }
 
         [Column("ID_USUARIO")]
         [ForeignKey("Usuario")]
