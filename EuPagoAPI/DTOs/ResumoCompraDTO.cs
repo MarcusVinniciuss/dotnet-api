@@ -7,6 +7,7 @@
         public long NumeroCartao { get; set; }
         public string CVVCartao { get; set; }
         public decimal ValorCompra { get; set; }
+        public DateTime DataCompra { get; set; }
         public int NumeroParcelas { get; set; }
         public decimal ValorParcelas { get; set; }
         public string StatusTransacao { get; set; }

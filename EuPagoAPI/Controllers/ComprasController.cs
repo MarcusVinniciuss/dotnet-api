@@ -40,6 +40,7 @@ namespace EuPagoAPI.Controllers
                         NumeroCartao = compra.Cartao.Numero,
                         CVVCartao = compra.Cartao.CVV,
                         ValorCompra = compra.ValorTotal,
+                        DataCompra = ultimaTransacaoCompra.DataTransacao,
                         NumeroParcelas = ultimaTransacaoCompra.NumeroParcelas,
                         ValorParcelas = ultimaTransacaoCompra.ValorParcelas,
                         StatusTransacao = ultimaTransacaoCompra.StatusTransacao,

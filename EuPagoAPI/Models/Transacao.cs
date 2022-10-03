@@ -7,6 +7,7 @@ namespace EuPagoAPI.Models
     public class Transacao
     {
         private int _numeroParcelas = 1;
+        private bool _isParcelado;
 
         [Key]
         [Column("ID_TRANSACAO")]
@@ -21,7 +22,16 @@ namespace EuPagoAPI.Models
         public DateTime DataTransacao { get; set; }
 
         [Column("ST_PARCELADO")]
-        public bool IsParcelado { get; set; }
+        public bool IsParcelado { 
+            get
+            {
+                return _isParcelado;
+            }
+            set
+            {
+                _isParcelado = Convert.ToBoolean(value);
+            }
+        }
 
         [Column("NR_PARCELAS")]
         public int NumeroParcelas

@@ -2,6 +2,7 @@
 {
     public record CartaoDTO
     {
+        public decimal Id { get; set; }
         public string NomeImpresso { get; set; }
         public long Numero { get; set; }
         public int MesValidade { get; set; }

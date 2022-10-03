@@ -46,7 +46,7 @@ namespace EuPagoAPI.Controllers
         [HttpGet]
         [Route("{usuarioId:decimal}")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        public async Task<ActionResult<dynamic>> Get(decimal usuarioId)
+        public async Task<ActionResult<CarteiraDTO>> Get(decimal usuarioId)
         {
             string headerToken = Request.Headers["Authorization"];
             var jwtToken = new JwtSecurityToken(headerToken.Replace("Bearer ", ""));
@@ -58,9 +58,29 @@ namespace EuPagoAPI.Controllers
 
             if (usuario == null) return NotFound("Usuário não encontrado.");
 
+            var carteiraDTO = new CarteiraDTO
+            {
+                Carteira = new List<CartaoDTO>()
+            };
+
+            foreach (var cartao in carteiraUsuario)
+            {
+                carteiraDTO.Carteira.Add(new()
+                {
+                    Id = cartao.Id,
+                    NomeImpresso = cartao.NomeImpresso,
+                    Numero = cartao.Numero,
+                    MesValidade = cartao.DataValidade.Month,
+                    AnoValidade = cartao.DataValidade.Year,
+                    CVV = cartao.CVV,
+                    Emissora = cartao.Emissora,
+                    UsuarioId = cartao.UsuarioId
+                });
+            }
+
             if (primarySidCPFClaim.Equals(Convert.ToString(usuario.CPF)))
             {
-                return Ok(carteiraUsuario);
+                return Ok(carteiraDTO);
             }
 
             return Forbid(@"{""message"": ""Token inválido para esse usuário ou está expirado.""}");

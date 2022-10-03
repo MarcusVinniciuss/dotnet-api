@@ -15,6 +15,11 @@ namespace EuPagoAPI.Models
         [Column("ID_CARTAO")]
         public decimal Id { get; set; }
 
+        [Column("NM_IMPRESSO")]
+        [Required(ErrorMessage = "Nome impresso no cartão é obrigatório.")]
+        [MaxLength(100)]
+        public string NomeImpresso { get; set; }
+
         [Column("NR_CARTAO")]
         [Required(ErrorMessage = "Número do cartão é obrigatório.")]
         public long Numero { get; set; }

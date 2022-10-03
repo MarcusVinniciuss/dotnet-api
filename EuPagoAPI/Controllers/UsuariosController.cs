@@ -73,6 +73,7 @@ namespace EuPagoAPI.Controllers
 
                 UsuarioDTO usuario = new()
                 {
+                    Id = usuarioLogado.Id,
                     Nome = usuarioLogado.Nome,
                     CPF = usuarioLogado.CPF,
                     Email = usuarioLogado.Email,
@@ -229,6 +230,7 @@ namespace EuPagoAPI.Controllers
 
                 UsuarioDTO usuario = new()
                 {
+                    Id = updatedUsuario.Id,
                     Nome = updatedUsuario.Nome,
                     CPF = updatedUsuario.CPF,
                     Email = updatedUsuario.Email,

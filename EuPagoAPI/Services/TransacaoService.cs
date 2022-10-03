@@ -79,9 +79,10 @@ namespace EuPagoAPI.Services
         {
             try
             {
-                return await _dataContext.Transacoes
+                var todasTransacoes =  await _dataContext.Transacoes
                     .Where(t => t.CompraId == compraId)
                     .ToListAsync();
+                return todasTransacoes;
             }
             catch (Exception)
             {
@@ -97,6 +98,7 @@ namespace EuPagoAPI.Services
                 var ultimaTransacao = transacoes
                     .MaxBy(t => t.Id);
                 return ultimaTransacao;
+                //return transacoes[0];
             }
             catch (Exception)
             {

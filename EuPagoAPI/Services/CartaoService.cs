@@ -54,6 +54,7 @@ namespace EuPagoAPI
                 {
                     Id = GetId<Cartao>("SEQ_EUPAGO_CARTAO"),
                     Numero = model.Numero,
+                    NomeImpresso = model.NomeImpresso,
                     DataValidade = dataValidade,
                     CVV = model.CVV,
                     Emissora = model.Emissora,
