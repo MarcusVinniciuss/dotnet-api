@@ -28,7 +28,12 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 });
 builder.Services.AddDbContext<DataContext>(
     opt => opt.UseOracle(
-        builder.Configuration.GetConnectionString("EuPagoDB")
+        builder.Configuration.GetConnectionString("EuPagoDB"),
+        options =>
+        {
+            options.UseOracleSQLCompatibility("12");
+            options.CommandTimeout(120);
+        }
     )
  );
 
