@@ -32,7 +32,7 @@ builder.Services.AddDbContext<DataContext>(
         options =>
         {
             options.UseOracleSQLCompatibility("12");
-            options.CommandTimeout(120);
+            options.CommandTimeout(180);
         }
     )
  );

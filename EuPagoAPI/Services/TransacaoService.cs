@@ -29,7 +29,7 @@ namespace EuPagoAPI.Services
         {
             var random = new Random();
             var status = random.Next(2);
-            return status == 1 ? StatusTransacao.Aprovado : StatusTransacao.Recusado;
+            return status == 1 ? StatusTransacao.Aprovada : StatusTransacao.Recusado;
         }
 
         public Transacao MockTransacao(Compra compra)

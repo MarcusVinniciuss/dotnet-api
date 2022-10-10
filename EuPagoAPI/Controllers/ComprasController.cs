@@ -73,7 +73,7 @@ namespace EuPagoAPI.Controllers
 
                 var transacao = await _service.Add(model);
 
-                if (transacao.StatusTransacao.Equals(StatusTransacao.Aprovado))
+                if (transacao.StatusTransacao.Equals(StatusTransacao.Aprovada))
                 {
                     return Ok("Transação aprovada! Compra realizada com sucesso.");
                 }

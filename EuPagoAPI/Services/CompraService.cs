@@ -8,9 +8,13 @@ namespace EuPagoAPI.Services
     public class CompraService : ServiceBase
     {
         private readonly TransacaoService _transacaoService;
-        public CompraService(DataContext dataContext, TransacaoService transacaoService) : base(dataContext)
+        private readonly EstabelecimentoService _estabelecimentoService;
+        public CompraService(DataContext dataContext,
+            TransacaoService transacaoService,
+            EstabelecimentoService estabelecimentoService) : base(dataContext)
         {
             _transacaoService = transacaoService;
+            _estabelecimentoService = estabelecimentoService;
         }
 
         public async Task<List<Compra>> GetAll(decimal usuarioId)
@@ -27,17 +31,41 @@ namespace EuPagoAPI.Services
         {
             try
             {
+                var estabelecimento = await _estabelecimentoService.Get(model.CnpjEstabelecimento);
+
+                if (estabelecimento == null)
+                {
+                    var newEstabelecimento = new EstabelecimentoDTO()
+                    {
+                        Nome = model.NomeEstabelecimento,
+                        CNPJ = model.CnpjEstabelecimento
+                    };
+                    await _estabelecimentoService.Add(newEstabelecimento);
+                    estabelecimento = await _estabelecimentoService.Get(model.CnpjEstabelecimento);
+                }
+
                 Compra compra = new()
                 {
                     Id = GetId<Compra>("SEQ_EUPAGO_COMPRA"),
-                    //Mock EstabelecimentoId
-                    EstabelecimentoId = 1,
+                    EstabelecimentoId = estabelecimento.Id,
                     UsuarioId = model.UsuarioId,
                     CartaoId = model.CartaoId,
                     ValorTotal = model.ValorTotal
                 };
+
+                Transacao transacao = new()
+                {
+                    Id = GetId<Transacao>("SEQ_EUPAGO_TRANSACAO"),
+                    CompraId = compra.Id,
+                    DataTransacao = model.DataCompra,
+                    IsParcelado = model.NumeroParcelas > 1,
+                    NumeroParcelas = model.NumeroParcelas,
+                    ValorParcelas = model.ValorParcelas,
+                    StatusTransacao = model.StatusTransacao,
+                    ValorTotal = model.ValorTotalCartao
+                };
                 
-                var transacao = _transacaoService.MockTransacao(compra);
+                //var transacao = _transacaoService.MockTransacao(compra);
 
                 await _dataContext.AddAsync(compra);
                 await _transacaoService.Add(transacao);

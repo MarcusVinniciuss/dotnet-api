@@ -4,6 +4,6 @@
     {
         public const string Recusado = "Recusado";
 
-        public const string Aprovado = "Aprovado";
+        public const string Aprovada = "Aprovada";
     }
 }
