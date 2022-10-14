@@ -50,7 +50,7 @@ namespace EuPagoAPI.Services
                     EstabelecimentoId = estabelecimento.Id,
                     UsuarioId = model.UsuarioId,
                     CartaoId = model.CartaoId,
-                    ValorTotal = model.ValorTotal
+                    ValorTotal = model.ValorCompra
                 };
 
                 Transacao transacao = new()
