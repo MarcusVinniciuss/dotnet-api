@@ -1,0 +1,25 @@
+{
+  "usuario": {
+    "nome": "Marcus Santos",
+    "cpf": 12312312387,
+    "senha": "string",
+    "dataNascimento": "2022-09-18T21:14:22.468Z",
+    "statusVisao": "string",
+    "email": "string",
+    "statusCadastro": "string",
+    "dataCadastro": "2022-09-18T21:14:22.468Z",
+    "dataAtualizacao": "2022-09-18T21:14:22.468Z",
+    "telefone": {
+      "ddd": 0,
+      "numero": 0
+    },
+    "endereco": {
+      "cidade": "string",
+      "rua": "string",
+      "bairro": "string",
+      "complemento": "string",
+      "cep": "string",
+      "numero": 0
+    }
+  }
+}
