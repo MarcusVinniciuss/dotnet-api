@@ -1,0 +1,63 @@
+node {
+
+  def resourceGroupName = 'rg-apidotnet'
+  def resourceGroupLocation = 'brazilsouth'
+  def appServicePlanName = 'plan-eupagoapi'
+  def appServicePlanTier = 'FREE'
+  def webAppName = 'eupagoo-api'
+  def webAppRuntime = '"dotnet:6"'
+  def packagePath = './publish'
+
+  stage('Extrair Codigo Fonte') {
+    echo 'Obtendo o Código Fonte ...'
+    checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/MarcusVinniciuss/dotnet-api.git']]])
+  }
+
+  stage('Build') {
+    echo 'Empacotando o projeto...'
+    sh 'dotnet restore ./EuPagoAPI/EuPagoAPI.csproj'
+    sh 'dotnet build ./EuPagoAPI/EuPagoAPI.csproj --configuration Release --no-restore'
+    sh 'dotnet publish ./EuPagoAPI/EuPagoAPI.csproj --configuration Release --output ./publish'
+  }
+  
+stage('Test') {
+    echo 'Testando arquivo...'
+    sh 'dotnet test ./EuPagoAPI/EuPagoAPI.csproj'
+  }
+
+  stage('Credenciais Azure') {
+    echo 'Obtendo credenciais...'
+    withCredentials([usernamePassword(credentialsId: 'AzureService', 
+      passwordVariable: 'AZURE_CLIENT_SECRET',
+      usernameVariable: 'AZURE_CLIENT_ID')]) {
+      echo 'Logando na Azure...'
+      sh 'az login -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET'
+    }
+  }
+
+  stage('Criar Infra') {
+    echo 'Criando o Grupo de Recursos...'
+    sh "az group create --name $resourceGroupName --location $resourceGroupLocation"
+    echo 'Criando Plano de Serviço...'
+    sh "az appservice plan create --name $appServicePlanName --resource-group $resourceGroupName --sku $appServicePlanTier"
+    echo 'Criando o Web App...'
+    sh "az webapp create --name $webAppName --plan $appServicePlanName --resource-group $resourceGroupName --runtime $webAppRuntime"
+  }
+
+  stage('Deploy') {
+     echo 'Realizando o Deploy na Azure...'
+    sh script:'''
+        #!/bin/bash
+        echo "This is start $(pwd)"
+        cd ./publish
+        ls -la
+        zip -r publish.zip .
+        mv publish.zip ../
+    '''
+     //sh 'rm -rf publish.zip'
+     sh 'ls -la'
+     //sh "zip -r publish.zip ."
+     sh "az webapp deployment source config-zip --src publish.zip -n $webAppName -g $resourceGroupName"
+  }
+
+}
