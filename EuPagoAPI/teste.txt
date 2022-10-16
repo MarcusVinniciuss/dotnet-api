@@ -1,5 +1,5 @@
 //POST: /api/usuario
-
+//GET: /api/KeepAlive
 {
   "usuario": {
     "nome": "Marcus Santos",
