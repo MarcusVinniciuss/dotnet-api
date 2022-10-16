@@ -1,3 +1,5 @@
+//POST: /api/usuario
+
 {
   "usuario": {
     "nome": "Marcus Santos",
